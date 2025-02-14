@@ -1,0 +1,20 @@
+def hamming_distance(str1, str2):
+    # Truncate the longer string to match the length of the shorter one
+    min_len = min(len(str1), len(str2))
+    str1 = str1[:min_len]
+    str2 = str2[:min_len]
+    
+    # Calculate the Hamming distance
+    distance = sum(c1 != c2 for c1, c2 in zip(str1, str2))
+    return distance
+
+# Example strings
+slack_username = "Favour"
+twitter_handle = "Fabs247"
+
+# Calculate Hamming distance
+distance = hamming_distance(slack_username, twitter_handle)
+
+print(f"Hamming Distance: {distance}")
+# the output is 
+Hamming Distance: 4
