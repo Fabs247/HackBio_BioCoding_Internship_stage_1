@@ -1,20 +1,48 @@
-def hamming_distance(str1, str2):
-    # Truncate the longer string to match the length of the shorter one
-    min_len = min(len(str1), len(str2))
-    str1 = str1[:min_len]
-    str2 = str2[:min_len]
-    
-    # Calculate the Hamming distance
-    distance = sum(c1 != c2 for c1, c2 in zip(str1, str2))
-    return distance
+[12:02 AM, 2/16/2025] Fabs:#Question Number 4 of stage_1 task
+# Function to calculate Hamming distance
+def hamming_distance(word1, word2):
+    """
+    This function counts how many letters are different between two words.
+    Since both words have the same length, we compare them directly.
+    """
 
-# Example strings
-slack_username = "Favour"
-twitter_handle = "Fabs247"
+    # Step 1: Compare letters one by one and count how many are different
+    # zip(word1, word2) pairs up letters from both words
+    # char1 != char2 checks if the letters at the same position are different
+    # sum(...) adds up all the differences to get the Hamming distance
+    difference_count = sum(char1 != char2 for char1, char2 in zip(word1, word2))
 
-# Calculate Hamming distance
-distance = hamming_distance(slack_username, twitter_handle)
+    return difference_count  # Return the total number of differences
 
-print(f"Hamming Distance: {distance}")
-# the output is 
-Hamming Distance: 4
+# Step 2: Define Slack and Twitter usernames
+slack_name = "Favour"  # My Slack username
+twitter_n…
+[12:24 AM, 2/16/2025] Fabs: # Function to calculate Hamming distance
+def hamming_distance(word1, word2):
+    """
+    This function counts how many letters are different between two words.
+    Since both words have the same length, we compare them directly.
+    """
+
+    difference_count = 0  # Start with zero differences
+
+    # Loop through each index position in the words
+    for i in range(len(word1)):  # i is the position (0,1,2,...)
+        if word1[i] != word2[i]:  # Compare letters at the same position
+            difference_count += 1  # If different, increase the count
+
+    return difference_count  # Return the total number of differences
+
+# Define Slack and Twitter usernames
+slack_name = "Favour"  # My Slack username
+twitter_name = "Fabs24"  # My Twitter username
+
+# Calculate the Hamming distance
+distance = hamming_distance(slack_name, twitter_name)
+
+# Show the result
+print(f"The Hamming distance between '{slack_name}' and '{twitter_name}' is: {distance}")
+
+#This is the output
+
+The Hamming distance between 'Favour' and 'Fabs24' is: 4
